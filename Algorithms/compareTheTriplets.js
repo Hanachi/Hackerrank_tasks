@@ -9,17 +9,17 @@ let inputString = '';
 let currentLine = 0;
 
 process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
+	inputString += inputStdin;
 });
 
 process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
+	inputString = inputString.split('\n');
 
-    main();
+	main();
 });
 
 function readLine() {
-    return inputString[currentLine++];
+	return inputString[currentLine++];
 }
 
 /*
@@ -32,28 +32,28 @@ function readLine() {
  */
 
 function compareTriplets(a, b) {
-    let result = [0, 0];
-    for(let i=0; i< a.length ; i++) {
-        if(a[i] > b [i]) {
-            result[0] += 1;
-        } else if(a[i] < b[i]) {
-            result[1] += 1;
-        }
-    }
-    return result;
+	let result = [0, 0];
+	for(let i=0; i< a.length ; i++) {
+		if(a[i] > b [i]) {
+			result[0] += 1;
+		} else if(a[i] < b[i]) {
+			result[1] += 1;
+		}
+	}
+	return result;
 
 }
 
 function main() {
-    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+	const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
-    const a = readLine().replace(/\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));
+	const a = readLine().replace(/\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));
 
-    const b = readLine().replace(/\s+$/g, '').split(' ').map(bTemp => parseInt(bTemp, 10));
+	const b = readLine().replace(/\s+$/g, '').split(' ').map(bTemp => parseInt(bTemp, 10));
 
-    const result = compareTriplets(a, b);
+	const result = compareTriplets(a, b);
 
-    ws.write(result.join(' ') + '\n');
+	ws.write(result.join(' ') + '\n');
 
-    ws.end();
+	ws.end();
 }
