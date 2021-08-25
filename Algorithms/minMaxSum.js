@@ -29,9 +29,12 @@ function readLine() {
 function miniMaxSum(arr) {
     let minSum = 0;
     let maxSum = 0;
+
     arr.sort();
+
     minSum = arr.slice(0, -1).reduce((acc, currentV) => acc + currentV);
     maxSum = arr.slice(1).reduce((acc, currentV) => acc + currentV);
+    
     console.log(minSum,maxSum);
 }
 
