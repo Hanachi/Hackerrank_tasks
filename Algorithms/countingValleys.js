@@ -1,4 +1,8 @@
 'use strict';
+/**An avid hiker keeps meticulous records of their hikes.
+ * During the last hike that took exactly  steps, for every step it was noted if it was an uphill, U, or a downhill, D step.
+ * Given the sequence of up and down steps during a hike, find and print the number of valleys walked through.
+ */
 
 const fs = require('fs');
 
