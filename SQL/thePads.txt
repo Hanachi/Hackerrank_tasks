@@ -1,0 +1,11 @@
+/**
+ * 1. Query an alphabetically ordered list of all names in OCCUPATIONS,
+ * immediately followed by the first letter of each profession as a parenthetical
+ * 2. Query the number of ocurrences of each occupation in OCCUPATIONS.
+ * Sort the occurrences in ascending order
+ */
+
+SELECT NAME || '(' || SUBSTR(OCCUPATION, 1, 1) || ')' FROM OCCUPATIONS ORDER BY NAME;
+SELECT 'There are a total of ' || OCC_COUNT || ' ' || LOWER(OCCUPATION) || 's.'
+FROM(SELECT OCCUPATION, COUNT(OCCUPATION) AS OCC_COUNT FROM OCCUPATIONS GROUP BY OCCUPATION)
+ORDER BY OCC_COUNT, OCCUPATION;
