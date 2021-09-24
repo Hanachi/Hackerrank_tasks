@@ -1,0 +1,10 @@
+/**
+ * Generate a report containing three columns: Name, Grade and Mark.
+ * Print "NULL"  as the name if the grade is less than 8.
+ * The report must be in descending order by grade.
+ */
+
+SELECT IF(GRADE < 8, NULL, NAME), GRADE, MARKS
+FROM STUDENTS JOIN GRADES
+WHERE MARKS BETWEEN MIN_MARK AND MAX_MARK
+ORDER BY GRADE DESC, NAME
