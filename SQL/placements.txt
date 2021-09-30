@@ -8,3 +8,10 @@
  * Names must be ordered by the salary amount offered to the best friends.
  * It is guaranteed that no two students got same salary offer.
  */
+
+Select S.Name
+From(Students S join Friends F Using(ID)
+       join Packages P1 on S.ID = P1.ID
+       join Packages P2 on F.Friend_ID = P2.ID)
+Where P2.Salary > P1.Salary
+Order By P2.Salary;
