@@ -1,0 +1,16 @@
+/**
+ * You are given a table, Projects, containing three columns: Task_ID, Start_Date and End_Date.
+ * It is guaranteed that the difference between the End_Date and the Start_Date is equal to 1 day for each row in the table.
+ * Write a query to output the start and end dates of projects listed by the number of days
+ * it took to complete the project in ascending order.
+ * If there is more than one project that have the same number of completion days,
+ * then order by the start date of the project.
+ */
+
+SELECT Start_Date, MIN(End_Date)
+FROM
+	(SELECT Start_Date FROM Projects WHERE Start_Date NOT IN(SELECT End_Date FROM Projects)) a,
+		(SELECT End_date FROM Projects WHERE End_date NOT IN(SELECT Start_date FROM Projects)) b
+where Start_date < End_date
+GROUP BY Start_date
+ORDER BY datediff(MIN(End_date), Start_Date) ASC, Start_date
