@@ -1,5 +1,12 @@
 'use strict';
 
+/**
+ * Given a word, create a new word by swapping some or all of its characters.
+ * This new word must meet two criteria: 
+ * It must be greater than the original word
+ * It must be the smallest word that meets the first condition
+ */
+
 const fs = require('fs');
 
 process.stdin.resume();
